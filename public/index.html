@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Live Users</title>
+  <link rel="stylesheet" type="text/css" href="./style.css">
+  <script src="/socket.io/socket.io.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const socket = io();
+
+      const email = prompt("Enter your email:");
+      const name = prompt("Enter your name:");
+
+      socket.emit('join', { email, name });
+
+      socket.on('userList', (users) => {
+        const userList = document.getElementById('userList');
+        userList.innerHTML = '';
+
+        users.forEach(user => {
+          const listItem = document.createElement('li');
+          listItem.innerHTML = `<a href="#" data-socket-id="${user.socketId}">${user.email} (${user.socketId})</a>`;
+          userList.appendChild(listItem);
+        });
+
+        document.querySelectorAll('#userList a').forEach(link => {
+          link.addEventListener('click', async (event) => {
+            event.preventDefault();
+            const socketId = event.target.getAttribute('data-socket-id');
+            const response = await fetch(`/user/${socketId}`);
+            const user = await response.json();
+            alert(`Email: ${user.email}\nName: ${user.name}\nSocket ID: ${user.socketId}`);
+          });
+        });
+      });
+    });
+  </script>
+</head>
+<body>
+  <h1>Live Users</h1>
+  <ul id="userList"></ul>
+</body>
+</html>

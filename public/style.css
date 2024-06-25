@@ -1,0 +1,45 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+  }
+  
+  h1 {
+    text-align: center;
+    color: #333;
+  }
+  
+  #userList {
+    list-style-type: none;
+    padding: 0;
+    max-width: 600px;
+    margin: 20px auto;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  #userList li {
+    padding: 10px;
+    border-bottom: 1px solid #eee;
+  }
+  
+  #userList li:last-child {
+    border-bottom: none;
+  }
+  
+  #userList a {
+    text-decoration: none;
+    color: #007BFF;
+  }
+  
+  #userList a:hover {
+    text-decoration: underline;
+  }
+  
+  #userList li:hover {
+    background-color: #f9f9f9;
+    cursor: pointer;
+  }
