@@ -5,7 +5,7 @@ const mongoose = require('mongoose');
 const path = require('path');
 
 // MongoDB setup
-mongoose.connect('mongodb+srv://yg2707320:H0D5B2Jm7DNR4aEk@cluster0.uh00tff.mongodb.net/my_database?retryWrites=true&w=majority&appName=Cluster0', {
+mongoose.connect('mongodb+srv://yg2707320:H0D5B2Jm7DNR4aEk@cluster0.uh00tff.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0', {
   ssl: true,
   serverSelectionTimeoutMS: 30000, // 30 seconds
   socketTimeoutMS: 45000 // 45 seconds
